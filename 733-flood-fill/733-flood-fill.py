@@ -3,16 +3,20 @@ class Solution:
         if image == None or image[sr][sc] == newColor:
             return image
         
-        self.fill(sr, sc, image, image[sr][sc], newColor)
+        self.fill(sr, sc, newColor, image, image[sr][sc])
         return image
         
-    def fill(self, r, c, image, initial, newColor):
-        if r < 0 or r > len(image) -1 or c < 0 or c > len(image[0])-1 or initial != image[r][c]:
-            return
-        image[r][c] = newColor
-            
-        self.fill(r+1, c, image, initial, newColor)
-        self.fill(r-1, c, image, initial, newColor)
-        self.fill(r, c+1, image, initial, newColor)
-        self.fill(r, c-1, image, initial, newColor)
+    def fill(self, row, column, newColor, image, initialColor):
+        if row < 0 or row > len(image)-1 or column < 0 or column > len(image[0])-1 or initialColor != image[row][column]:
+            return 
+        
+        image[row][column] = newColor
+        
+        self.fill(row+1, column, newColor, image, initialColor)
+        self.fill(row-1, column, newColor, image, initialColor)
+        self.fill(row, column+1, newColor, image, initialColor)
+        self.fill(row, column-1, newColor, image, initialColor)
+        
+        
+        
     
