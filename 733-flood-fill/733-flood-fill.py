@@ -7,7 +7,7 @@ class Solution:
         return image
         
     def fill(self, row, column, newColor, image, initialColor):
-        if row < 0 or row > len(image)-1 or column < 0 or column > len(image[0])-1 or initialColor != image[row][column]:
+        if row < 0 or row >= len(image) or column < 0 or column >= len(image[0]) or initialColor != image[row][column]:
             return 
         
         image[row][column] = newColor
