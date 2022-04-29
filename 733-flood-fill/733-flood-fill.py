@@ -1,6 +1,6 @@
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -> List[List[int]]:
-        if image == None or image[sr][sc] == newColor:
+        if not image or newColor == image[sr][sc]:
             return image
         
         self.fill(sr, sc, newColor, image, image[sr][sc])
@@ -18,5 +18,3 @@ class Solution:
         self.fill(row, column-1, newColor, image, initialColor)
         
         
-        
-    
