@@ -16,3 +16,5 @@ class Solution:
         self.fill(row-1, column, newColor, image, initialColor)
         self.fill(row, column+1, newColor, image, initialColor)
         self.fill(row, column-1, newColor, image, initialColor)
+        
+        
