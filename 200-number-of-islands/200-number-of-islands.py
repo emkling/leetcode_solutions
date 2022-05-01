@@ -3,20 +3,26 @@ class Solution:
         if not grid:
             return 0
         
-        count = 0
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == '1':
-                    self.dfs(grid, i, j)
+        count = 0 
+        
+        for rows in range(len(grid)):
+            for cols in range(len(grid[0])):
+                if grid[rows][cols] == '1':
+                    self.dfs(grid, rows, cols)
                     count += 1
+                    
+        
         return count
-
-    def dfs(self, grid, i, j):
-        if i<0 or j<0 or i>=len(grid) or j>=len(grid[0]) or grid[i][j] != '1':
+    
+    
+    def dfs(self, grid, r, c):
+    
+        if r < 0 or r >= len(grid) or c < 0 or c >= len(grid[0]) or grid[r][c] != '1':
             return
 
-        grid[i][j] = '#'
-        self.dfs(grid, i+1, j)
-        self.dfs(grid, i-1, j)
-        self.dfs(grid, i, j+1)
-        self.dfs(grid, i, j-1)
+        grid[r][c] = '#'
+
+        self.dfs(grid, r - 1, c)
+        self.dfs(grid, r + 1, c)
+        self.dfs(grid, r, c - 1)
+        self.dfs(grid, r, c + 1)
