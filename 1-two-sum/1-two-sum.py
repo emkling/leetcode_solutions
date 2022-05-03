@@ -2,12 +2,12 @@ class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         hashmap = {}
         
-        for idx, val in enumerate(nums):
-            complement = target - val
-            
+        for idx, number in enumerate(nums):
+            complement = target - number
             if complement in hashmap:
-                return [idx, hashmap[complement]]
+                return [hashmap[complement], idx]
             else:
-                hashmap[val] = idx
+                hashmap[number] = idx
                 
+        
                 
