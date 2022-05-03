@@ -23,7 +23,7 @@ class Solution:
                 result.append(window_start)
                 
                 
-            if window_end - window_start + 1 >= len(p) :
+            if window_end - window_start >= len(p) -1 :
                 left_char = s[window_start]
                 window_start += 1
                 
