@@ -8,17 +8,16 @@ class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         slow, fast = head, head
         
-        
         while fast and fast.next:
             fast = fast.next.next
             slow = slow.next
             
             if slow == fast:
-                pointer = head
+                slow2 = head
                 
-                while slow != pointer:
+                while slow != slow2:
                     slow = slow.next
-                    pointer = pointer.next
-                return slow
+                    slow2 = slow2.next
+                return slow2
             
             
