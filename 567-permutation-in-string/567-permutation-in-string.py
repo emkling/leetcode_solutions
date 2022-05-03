@@ -20,7 +20,7 @@ class Solution:
             if matches == len(frequency):
                 return True
             
-            if window_end >= len(s1)-1:
+            if window_end - window_start + 1 >= len(s1):
                 left_char = s2[window_start]
                 window_start += 1
                 
