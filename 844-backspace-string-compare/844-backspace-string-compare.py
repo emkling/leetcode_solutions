@@ -1,40 +1,16 @@
 class Solution:
     def backspaceCompare(self, s: str, t: str) -> bool:
-        index1 = len(s) - 1
-        index2 = len(t) - 1
+        l1 = self.stack(s, [])
+        l2 = self.stack(t, [])
+        return l1 == l2
         
-        while index1 >= 0 or index2 >= 0:
-            i1 = self.get_index(s, index1)
-            i2 = self.get_index(t, index2)
-            
-            if i1 < 0 and i2 < 0:
-                return True
-            
-            if i1 < 0 or i2 < 0:
-                return False
-            
-            if s[i1] != t[i2]:
-                return False
-            
-            
-            index1 = i1 - 1
-            index2 = i2 - 1
-            
-        return True
     
-    
-    def get_index(self, string, index):
-        backspaces = 0
-        
-        while index >= 0:
-            if string[index] == '#':
-                backspaces += 1
-            elif backspaces > 0:
-                backspaces -= 1
-                
+    def stack(self, s, stack):
+        for char in s:
+            if char is not "#":
+                stack.append(char)
             else:
-                break
-                
-            index -=  1
-            
-        return index
+                if not stack:
+                    continue
+                stack.pop()
+        return stack
