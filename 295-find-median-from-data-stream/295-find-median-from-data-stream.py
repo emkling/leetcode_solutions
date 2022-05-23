@@ -14,9 +14,3 @@ class MedianFinder:
         if len(large) > len(small):
             return float(large[0])
         return (large[0] - small[0]) / 2.0
-
-
-# Your MedianFinder object will be instantiated and called as such:
-# obj = MedianFinder()
-# obj.addNum(num)
-# param_2 = obj.findMedian()
